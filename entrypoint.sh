@@ -38,7 +38,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
         /opt/python/"${PY_VER}"/bin/poetry install || { echo "Installing poetry package failed."; exit 1; }
         /opt/python/"${PY_VER}"/bin/poetry build || { echo "Building wheels failed."; exit 1; }
     else
-        echo "Invalid build-system: `${BUILD_SYSTEM}`, use `pip` or `poetry`."; exit 1;
+        echo "Invalid build-system: ${BUILD_SYSTEM}, use pip or poetry."; exit 1;
     fi
 done
 

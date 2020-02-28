@@ -23,6 +23,10 @@ inputs:
     description: 'extra arguments to pass to the `pip wheel` command'
     required: false
     default: '--no-deps'
+  build-system:
+    description: 'build system to use, `pip` or `poetry`'
+    required: false
+    default: 'pip'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -32,6 +36,7 @@ runs:
     - ${{ inputs.system-packages }}
     - ${{ inputs.package-path }}
     - ${{ inputs.pip-wheel-args}}
+    - ${{ inputs.build-system}}
 branding:
   icon: 'package'
   color: 'green'
