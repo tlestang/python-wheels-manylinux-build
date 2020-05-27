@@ -35,8 +35,8 @@ done
 
 # Bundle external shared libraries into the wheels
 for whl in /github/workspace/wheelhouse/*-linux*.whl; do
-    auditwheel repair "$whl" --plat "${PLAT}" -w /github/workspace/wheelhouse/ || { echo "Repairing wheels failed."; auditwheel show "$whl"; exit 1; }
+    auditwheel repair "$whl" --plat "${PLAT}" -w /github/workspace/dist/ || { echo "Repairing wheels failed."; auditwheel show "$whl"; exit 1; }
 done
 
 echo "Succesfully build wheels:"
-ls /github/workspace/wheelhouse
+ls /github/workspace/dist/
