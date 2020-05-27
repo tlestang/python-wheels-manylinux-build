@@ -7,6 +7,12 @@ BUILD_REQUIREMENTS=$2
 SYSTEM_PACKAGES=$3
 PACKAGE_PATH=$4
 PIP_WHEEL_ARGS=$5
+COMMANDS=$6
+
+# Execute user-defined commands
+if [ -f /github/workspace/$COMMANDS ]; then
+    source /github/workspace/$COMMANDS
+fi
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }

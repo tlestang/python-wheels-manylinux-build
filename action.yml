@@ -23,6 +23,11 @@ inputs:
     description: 'extra arguments to pass to the `pip wheel` command'
     required: false
     default: '--no-deps'
+  commands:
+    description: 'name of a file containing additional commands to be run on the image'
+    required: false
+    default: ''
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -32,6 +37,7 @@ runs:
     - ${{ inputs.system-packages }}
     - ${{ inputs.package-path }}
     - ${{ inputs.pip-wheel-args}}
+    - ${{ inputs.commands }}
 branding:
   icon: 'package'
   color: 'green'
