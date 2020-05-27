@@ -23,9 +23,12 @@ jobs:
         build-requirements: 'setuptools numpy cython'
         system-packages: 'lrzip-devel zlib-devel'
         package-path: 'hello_py'
+        commands: 'commands.sh'
     - name: Setup Python environment
       uses: actions/setup-python@v1.1.1
     - name: Install wheel
       run: 'pip install wheelhouse/hello_py*-manylinux*.whl'
     - name: Test wheel
       run: 'hello_py'
+    - name: Test additional command
+      run: cat hello.txt
